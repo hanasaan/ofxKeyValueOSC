@@ -196,6 +196,19 @@ public:
 		
 		return true;
 	}
+    
+    bool get(const string& key, ofQuaternion &value)
+	{
+		ofxOscMessage m;
+		if (!get(key, m)) return false;
+		
+		value.x() = m.getArgAsFloat(0);
+		value.y() = m.getArgAsFloat(1);
+		value.z() = m.getArgAsFloat(2);
+        value.w() = m.getArgAsFloat(3);
+		
+		return true;
+	}
 	
 	bool get(const string& key, ofColor &value)
 	{
